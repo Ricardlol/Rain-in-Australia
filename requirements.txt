@@ -1,0 +1,36 @@
+-----------------
+Used packages
+-----------------
+
+numpy
+pandas
+matplotlib
+
+ipywidgets  -> only for demos
+
+sklearn
+seaborn
+scipy
+imblearn
+xgboost
+
+-----------------
+Install with conda
+-----------------
+
+conda install -c anaconda numpy
+conda install -c anaconda pandas
+conda install -c conda-forge matplotlib
+conda install -c intel scikit-learn
+
+https://anaconda.org/conda-forge/repo -> Repository official for install packages in anaconda
+
+-----------------
+Install with pip
+-----------------
+pip install numpy
+pip install pandas
+https://pypi.org/project/matplotlib/
+pip install --exists-action=i scikit-learn
+
+https://pypi.org/ -> Repository official for install packages in pip

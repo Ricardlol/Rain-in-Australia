@@ -1,5 +1,5 @@
 # Rain in Australia
-**Alumne** : Ricard Lopez Olivares (ricardlol en github)__
+**Alumne** : Ricard Lopez Olivares (ricardlol en github) <br />
 **Dataset** : [Rain in Australia link](https://www.kaggle.com/jsphyg/weather-dataset-rattle-package)
 
 # taula de continguts

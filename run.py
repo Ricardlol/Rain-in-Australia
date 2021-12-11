@@ -26,6 +26,7 @@ from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import BaggingClassifier
+import time
 from sklearn.preprocessing import PolynomialFeatures
 pd.set_option("display.max_columns", None)
 
@@ -302,11 +303,11 @@ def strack_modle(X,y):
     print(f1_score(y_test, y_pred))
 
 def main():
-    database = pd.read_csv('./weatherAUS.csv')
+    database = pd.read_csv('./data/weatherAUS.csv')
 
     analyseData(database)
 
-    database = fixTarget(database, "Yes")
+    database = fixTarget(database, "No")
 
     database = oversamplingRandom(database)
     # database = undersamplingRandom(database)
@@ -330,20 +331,54 @@ def main():
     x = transformutilsColumns(x, skewed_col)
 
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
     X_train = standarise(X_train)
     X_test = standarise(X_test)
 
+    inicio = time.time()
     logisticRegression(X_test, X_train, y_test, y_train)
-    svc(X_test, X_train, y_test, y_train, False, ["poly"])
-    xgbc(X_test, X_train, y_test, y_train)
-    baggingXGBC(X_test, X_train, y_test, y_train)
-    rfc(X_test, X_train, y_test, y_train)
-    baggingRandomForest(X_test, X_train, y_test, y_train)
-    svcLinear(X_test, X_train, y_test, y_train)
+    tempsTrigat = time.time() - inicio;
+    print(tempsTrigat)
 
+    inicio = time.time()
+    svc(X_test, X_train, y_test, y_train, False, ["poly"])
+    tempsTrigat = time.time() - inicio;
+    print(tempsTrigat)
+
+    inicio = time.time()
+    xgbc(X_test, X_train, y_test, y_train)
+    tempsTrigat = time.time() - inicio;
+    print(tempsTrigat)
+
+    inicio = time.time()
+    baggingXGBC(X_test, X_train, y_test, y_train)
+    tempsTrigat = time.time() - inicio;
+    print(tempsTrigat)
+
+    inicio = time.time()
+    rfc(X_test, X_train, y_test, y_train)
+    tempsTrigat = time.time() - inicio;
+    print(tempsTrigat)
+
+    inicio = time.time()
+    baggingRandomForest(X_test, X_train, y_test, y_train)
+    tempsTrigat = time.time() - inicio;
+    print(tempsTrigat)
+
+    inicio = time.time()
+    svcLinear(X_test, X_train, y_test, y_train)
+    tempsTrigat = time.time() - inicio;
+    print(tempsTrigat)
+
+    inicio = time.time()
     decicionTree(X_test, X_train, y_test, y_train)
+    tempsTrigat = time.time() - inicio;
+    print(tempsTrigat)
+
+    inicio = time.time()
     baggingDecicionTree(X_test, X_train, y_test, y_train)
+    tempsTrigat = time.time() - inicio;
+    print(tempsTrigat)
 
     scores = cross_val_score(LogisticRegression(C=2.0, fit_intercept=True, penalty='l2', tol=0.001), x, y, cv=5, scoring="f1_macro")
     # scores = cross_val_score(svm.SVC(C=2, kernel="poly", probability=False, random_state=0, tol=0.0001, max_iter=500), X, y, cv=5,scoring="f1_macro")

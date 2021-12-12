@@ -59,15 +59,15 @@ Es podrien aplicar qualsevol model de classificació, en aquest repositori troba
 | SVC |  No Parameters | - | - | - | - | no acaba |
 | Decision Tree | max_depth = 6 | 0.766| 0.732 | 0.787 |0.762| 2.65|
 | Random Forest | max_samples = 0.9 | 0.949| 0.977 | 0.919 |0.949| 406.40|
-| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.823 | |  |0.823 | 25.70|
-| KNN |  n_neighbors=5 | 0.802| |  | 0.801| 0.263|
+| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.823 | 0.832 | 0.810 |0.823 | 25.70|
+| KNN |  n_neighbors=5 | 0.802| 0.810 | 0.805 | 0.801| 0.263|
 
 ### Models utilitzant skew amb oversampling
 
 | Model | Hiperparametre | Accuracy | Recall | Precision| F1-score | Temps (s)|
 | ----- | ----| ---- |---- |---- |---- |---- |
-| Regressió logística | No Parameterse | 0.761| |  |0.761| 5.62|
-| Decision Tree | max_depth = 6 | 0.767| |  |0.767| 3.41|
+| Regressió logística | No Parameterse | 0.761| 0.752 | 0.755 |0.761| 5.62|
+| Decision Tree | max_depth = 6 | 0.767| 0.745 | 0.763 |0.767| 3.41|
 | Random Forest | max_samples = 0.9 | 0.945| 0.977 | 0.919 |0.945| 52.40|
 | XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.838 | 0.837 | 0.836 | 0.838 | 34.42|
 | KNN |  n_neighbors=5 | 0.817| 0.888 | 0.791 | 0.817| 0.232|

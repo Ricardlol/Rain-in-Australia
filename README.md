@@ -40,49 +40,54 @@ Es podrien aplicar qualsevol model de classificació, en aquest repositori troba
 - [KNN](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
 
 ## Comparativa de models
-### Models per defecte amb dades estandaritzades amb oversampling
-| Model | Hiperparametre | Accuracy | F1-score | Temps (s)|
-| ----- | ----| ---- |---- |---- |
-| Regressió logística | per defecte | 0.789| 0.789| 2.89|
-| SVC |  per defecte | - | - | no acaba |
-| Decision Tree | max_depth = 6 | 0.763| 0.763| 3.174|
-| Random Forest | max_samples = 0.9 | 0.946| 0.946| 406.40|
-| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.837 | 0.837 | 15.85|
-| KNN |  n_neighbors=5 | 0.802| 0.801| 0.263|
+### Models per defecte amb dades estandaritzades i oversampling
 
-### Models sense estandaritzar amb oversampling
-| Model | Hiperparametre | Accuracy | F1-score | Temps (s)|
-| ----- | ----| ---- |---- |---- |
-| Regressió logística | per defecte | 0.7774| 0.774| 3.14|
-| SVC |  per defecte | - | - | no acaba |
-| Decision Tree | max_depth = 6 | 0.762| 0.762| 2.65|
-| Random Forest | max_samples = 0.9 | 0.949| 0.949| 406.40|
-| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.823 | 0.823 | 25.70|
-| KNN |  n_neighbors=5 | 0.802| 0.801| 0.263|
+| Model | Hiperparametre | Accuracy | Recall | Precision| F1-score | Temps (s)|
+| ----- | ----| ---- |---- |---- |---- |---- |
+| Regressió logística | No Parameters | 0.789| 0.763 | 0.795 |0.789| 2.89|
+| SVC |  No Parameters | - | - | - | - | no acaba |
+| Decision Tree | max_depth = 6 | 0.763| 0.739 | 0.772 | 0.759 | 3.174|
+| Random Forest | max_samples = 0.9 | 0.946| 0.975 | 0.92 | 0.946| 406.40|
+| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.837 | 0.838 | 0.837 | 0.836 | 15.85|
+| KNN |  n_neighbors=5 | 0.802| 0.838 | 0.837| 0.801| 0.263|
+
+### Models sense estandaritzar i oversampling
+
+| Model | Hiperparametre | Accuracy | Recall | Precision| F1-score | Temps (s)|
+| ----- | ----| ---- |---- |---- |---- |---- |
+| Regressió logística | No Parameters | 0.777| 0.759 | 0.781 |0.774| 3.14|
+| SVC |  No Parameters | - | - | - | - | no acaba |
+| Decision Tree | max_depth = 6 | 0.766| 0.732 | 0.787 |0.762| 2.65|
+| Random Forest | max_samples = 0.9 | 0.949| 0.977 | 0.919 |0.949| 406.40|
+| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.823 | |  |0.823 | 25.70|
+| KNN |  n_neighbors=5 | 0.802| |  | 0.801| 0.263|
 
 ### Models utilitzant skew amb oversampling
-| Model | Hiperparametre | Accuracy | F1-score | Temps (s)|
-| ----- | ----| ---- |---- |---- |
-| Regressió logística | per defecte | 0.761| 0.761| 5.62|
-| Decision Tree | max_depth = 6 | 0.767| 0.767| 3.41|
-| Random Forest | max_samples = 0.9 | 0.945| 0.945| 52.40|
-| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.838 | 0.838 | 34.42|
-| KNN |  n_neighbors=5 | 0.817| 0.817| 0.232|
+
+| Model | Hiperparametre | Accuracy | Recall | Precision| F1-score | Temps (s)|
+| ----- | ----| ---- |---- |---- |---- |---- |
+| Regressió logística | No Parameterse | 0.761| |  |0.761| 5.62|
+| Decision Tree | max_depth = 6 | 0.767| |  |0.767| 3.41|
+| Random Forest | max_samples = 0.9 | 0.945| 0.977 | 0.919 |0.945| 52.40|
+| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.838 | 0.837 | 0.836 | 0.838 | 34.42|
+| KNN |  n_neighbors=5 | 0.817| 0.888 | 0.791 | 0.817| 0.232|
 
 ### Models utilitzant skew y standarització amb oversampling
-| Model | Hiperparametre | Accuracy | F1-score | Temps (s)|
-| ----- | ----| ---- |---- |---- |
-| Regressió logística | per defecte | 0.787| 0.787| 5.70|
-| Decision Tree | max_depth = 6 | 0.767| 0.767| 3.41|
-| Random Forest | max_samples = 0.9 | 0.945| 0.945| 52.40|
-| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.838 | 0.838 | 34.42|
-| KNN |  n_neighbors=5 | 0.817| 0.817| 0.232|
+
+| Model | Hiperparametre | Accuracy | Recall | Precision| F1-score | Temps (s)|
+| ----- | ----| ---- |---- |---- |---- |---- |
+| Regressió logística | No Parameters | 0.787| 0.774 | 0.794 | 0.787| 5.70|
+| Decision Tree | max_depth = 6 | 0.767| 0.775 | 0.763 | 0.767| 3.41|
+| Random Forest | max_samples = 0.9 | 0.945| 0.977 | 0.919 | 0.945| 52.40|
+| XGBOOST | objective='binary:logistic' <br /> random_state=0 | 0.838 | 0.838 | 0.835 | 0.838 | 34.42|
+| KNN |  n_neighbors=5 | 0.817| 0.861 |  0.776 | 0.888 | 0.232|
 
 Com podem veure, utilitzar un skew no ens donà cap benefici en scores, però si en temps, sobretot en els models que trigaven més com el random forest.
 
 A partir mirare de millorar el millor model que tenim modificant els hiperparametres.
 
 ### Random forest canviant hiperparametres
+
 El millors hiperparametres per el random forest son els següents:
 - n_estimators= 50
 - max_samples= 0.3
@@ -92,6 +97,7 @@ El millors hiperparametres per el random forest son els següents:
 
 Aquest hiperparametres hs sigut vtinguts amb un RandomizedSeardfchCV.
 Amb aquest parametres ens donara una accuracy de 0.96, un F1_score de 0.96 a,b un temps de 30.11 segons.
+
 ## Comparativa amb altres kaggles
 
 Si mirem repositoris d'altres persones, podem veure títols amb un acuracy molt alta, però observant el contingut podem veure, el següent:
@@ -100,3 +106,6 @@ Si mirem repositoris d'altres persones, podem veure títols amb un acuracy molt 
 - Uns altres el que fan és eliminar outlayers, aquesta decisió ens ara tenir menys dades, però com tenim moltes, no passa res. Un exemple d'això ho tenim en aquest mateix kaggle o si escau un exemple extern tenim el kaggle de [Muhammad Shahbaz Muneer](https://www.kaggle.com/mdshahbazmuneer/91-accuracy-complete-explanation-with-comments).
 
 - Per últim tenim kaggles que dona un acuracy més baix aquest és perquè no tracten les dades, es a dir, no normalitzen o estandarditzen, per tant, les dades estan bastant dispersés, un exemple d'això el tenim amb el kaggle de [lynnxy](https://www.kaggle.com/lynnxy/rain-in-australia-eda-ml).
+
+
+
